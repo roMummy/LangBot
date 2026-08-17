@@ -77,8 +77,8 @@ services:
       # Mount the wechat08 adapter files individually (single-file mounts) so
       # adapter changes take effect after a restart. Do NOT mount the whole
       # sources dir: the local checkout may differ from the image version.
-      - /Users/macbookpro2022m2/Downloads/LangBot-master/src/langbot/pkg/platform/sources/wechat08.py:/app/src/langbot/pkg/platform/sources/wechat08.py
-      - /Users/macbookpro2022m2/Downloads/LangBot-master/src/langbot/pkg/platform/sources/wechat08.yaml:/app/src/langbot/pkg/platform/sources/wechat08.yaml
+      - ../src/langbot/pkg/platform/sources/wechat08.py:/app/src/langbot/pkg/platform/sources/wechat08.py
+      - ../src/langbot/pkg/platform/sources/wechat08.yaml:/app/src/langbot/pkg/platform/sources/wechat08.yaml
     restart: on-failure
     environment:
       - TZ=Asia/Shanghai
