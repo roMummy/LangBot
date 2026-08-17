@@ -86,19 +86,19 @@ const jaJP = {
       'おすすめ：公式の安定したモデル API とクラウドサービスを利用',
     loginLocal: 'ローカルアカウントでログイン',
     loginWithPassword: 'パスワードでログイン',
-    spaceLoginTitle: 'LangBot アカウントでログイン',
+    spaceLoginTitle: 'Space でログイン',
     spaceLoginDescription:
       'QRコードをスキャンするか、下のリンクにアクセスして認証してください',
     spaceLoginUserCode: '認証コード',
     spaceLoginExpires: 'コードは {{seconds}} 秒後に期限切れになります',
     spaceLoginWaiting: '認証を待っています...',
     spaceLoginSuccess: '認証に成功しました',
-    spaceLoginFailed: 'LangBot アカウントログインに失敗しました',
+    spaceLoginFailed: 'Space ログインに失敗しました',
     spaceLoginExpired:
       '認証コードの有効期限が切れました。もう一度お試しください',
     spaceLoginCancel: 'キャンセル',
     spaceLoginVisitLink: 'リンクにアクセス',
-    spaceLoginProcessing: 'LangBot アカウントでログイン中',
+    spaceLoginProcessing: 'Space でログイン中',
     spaceLoginProcessingDescription:
       'ログインを完了しています。しばらくお待ちください...',
     spaceLoginSuccessDescription: 'LangBot にリダイレクト中...',
@@ -107,7 +107,7 @@ const jaJP = {
     backToLogin: 'ログインに戻る',
     backToHome: 'ホームに戻る',
     spaceAccountCannotChangePassword:
-      'LangBot アカウントはここでパスワードを変更できません',
+      'Space アカウントはここでパスワードを変更できません',
     theme: 'テーマ',
     changePassword: 'パスワードを変更',
     currentPassword: '現在のパスワード',
@@ -257,9 +257,8 @@ const jaJP = {
     llmModels: 'LLM モデル',
     localProvider: 'ローカル',
     localProviderDescription: 'ローカルで設定・管理されているモデル',
-    spaceProviderDescription: 'LangBot アカウントから同期されたモデル',
-    spaceDisabledForLocalAccount:
-      'LangBot アカウントでログインしてクラウドモデルを使用',
+    spaceProviderDescription: 'Space アカウントから同期されたモデル',
+    spaceDisabledForLocalAccount: 'Space でログインしてクラウドモデルを使用',
     syncModels: '同期',
     syncSuccess: '同期完了：{{created}} 件作成、{{updated}} 件更新',
     syncError: '同期に失敗しました：',
@@ -297,15 +296,15 @@ const jaJP = {
     langbotModelsDescription: 'LangBot Space が提供するクラウドモデル',
     credits: 'クレジット',
     loginWithSpace: 'LangBot アカウントでログイン',
-    loginToUseModels: 'LangBot アカウントでログインしてクラウドモデルを使用',
+    loginToUseModels: 'Space でログインしてクラウドモデルを使用',
     ownerMustBindSpace:
-      'LangBot モデルを使うにはワークスペース所有者が LangBot アカウントを連携する必要があります。',
+      'LangBot モデルを使うにはワークスペース所有者が Space を連携する必要があります。',
     usesOwnerSpaceBilling:
-      'ワークスペース所有者の LangBot アカウント課金とクレジットを使用します。',
+      'ワークスペース所有者の Space 課金とクレジットを使用します。',
     noModels: 'モデルがありません',
     langbotModels: 'LangBot モデル',
     spaceTrialTooltip:
-      '無料トライアルクレジットが利用可能！LangBot アカウントでログインして、設定不要でクラウドモデルを使用できます。',
+      '無料トライアルクレジットが利用可能！Space でログインして、設定不要でクラウドモデルを使用できます。',
     unlockModels: 'ログインして使用',
     editProvider: 'プロバイダーを編集',
     addProvider: 'プロバイダーを追加',
@@ -1224,13 +1223,13 @@ const jaJP = {
     adminAccountNote:
       'ここで初期化されたアカウントは管理者アカウントとして使用されます',
     register: '登録',
-    initWithSpace: 'LangBot アカウントで初期化',
+    initWithSpace: 'Space で初期化',
     spaceRecommended:
       'おすすめ：公式の安定したモデル API とクラウドサービスを利用',
     spaceInfoTip1:
       'Space は統一されたアカウント認証サービスを提供し、機密情報をアップロードすることはありません。',
     spaceInfoTip2:
-      'LangBot アカウントでログインすると、LangBot Models などのクラウドサービスを利用でき、無料のモデル呼び出しクレジットで迅速に開始できます。',
+      'Space アカウントでログインすると、LangBot Models などのクラウドサービスを利用でき、無料のモデル呼び出しクレジットで迅速に開始できます。',
     spaceInfoTip3:
       'ログイン方法は他の機能に影響しません。いつでも他のソースからモデルを設定して使用できます。',
     registerLocal: 'ローカルアカウントを登録',
@@ -1287,33 +1286,33 @@ const jaJP = {
     passwordNotSet: '未設定',
     passwordSetDescription:
       'パスワードが設定されています。メールとパスワードでログインできます',
-    spaceStatus: 'LangBot アカウント',
+    spaceStatus: 'Space アカウント',
     spaceBound: '連携済み',
     spaceNotBound: '未連携',
     spaceBoundDescription:
-      'LangBot アカウントと連携済み、公式モデル API とクラウドサービスが利用可能',
-    bindSpace: 'LangBot アカウントを連携',
+      'Space アカウントと連携済み、公式モデル API とクラウドサービスが利用可能',
+    bindSpace: 'Space アカウントを連携',
     bindSpaceDescription: '連携して公式モデル API とクラウドサービスを利用',
     bindSpaceButton: '連携',
     bindSpaceConfirmTitle: '連携を確認',
     bindSpaceConfirmDescription:
-      'ローカルインスタンスを LangBot アカウントに連携しようとしています',
+      'ローカルインスタンスを Space アカウントに連携しようとしています',
     bindSpaceWarning:
-      '連携後、ログインメールアドレスは {{localEmail}} から LangBot アカウントのメールアドレスに変更されます。',
-    bindSpaceSuccess: 'LangBot アカウントの連携に成功しました',
-    bindSpaceFailed: 'LangBot アカウントの連携に失敗しました',
+      '連携後、ログインメールアドレスは {{localEmail}} から Space アカウントのメールアドレスに変更されます。',
+    bindSpaceSuccess: 'Space アカウントの連携に成功しました',
+    bindSpaceFailed: 'Space アカウントの連携に失敗しました',
     bindSpaceInvalidState:
       '無効な連携リクエストです。アカウント設定から再度お試しください。',
     setPasswordHint:
       'パスワードを設定するとメールとパスワードでログインできます',
     spaceEmailMismatch:
-      'LangBot アカウントのメールアドレスがローカルアカウントのメールアドレスと一致しません',
+      'Spaceログインのメールアドレスがローカルアカウントのメールアドレスと一致しません',
     space_account_not_registeredTitle: 'アカウントが登録されていません',
     space_account_not_registered:
-      'この LangBot アカウントのメールアドレスのローカルアカウントはありません。ワークスペース所有者に招待を依頼してください。',
-    space_account_binding_requiredTitle: 'LangBot アカウントの連携が必要です',
+      'この Space メールアドレスのローカルアカウントはありません。ワークスペース所有者に招待を依頼してください。',
+    space_account_binding_requiredTitle: 'Space の連携が必要です',
     space_account_binding_required:
-      'LangBot アカウントログインを使用する前に、アカウント設定でこのローカルアカウントを LangBot アカウントに連携してください。',
+      'Space ログインを使用する前に、アカウント設定でこのローカルアカウントを Space に連携してください。',
   },
   workspace: {
     title: 'ワークスペース',

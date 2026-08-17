@@ -1,0 +1,85 @@
+apiVersion: v1
+kind: MessagePlatformAdapter
+metadata:
+  name: wechat08
+  label:
+    en_US: WeChatReal08
+    zh_Hans: 个人微信（wechatReal08）
+    zh_Hant: 個人微信（wechatReal08）
+  description:
+    en_US: WeChatReal08 personal WeChat adapter (self-hosted HTTP API, QR code login, message push callback)
+    zh_Hans: 基于 wechatReal08（微信 08 算法 HTTP API）的个人微信适配器，扫码登录，服务端自动心跳推送消息
+    zh_Hant: 基於 wechatReal08（微信 08 演算法 HTTP API）的個人微信適配器，掃碼登入，伺服器端自動心跳推送訊息
+  icon: wechat.png
+spec:
+  categories:
+    - china
+  help_links:
+    zh: https://link.langbot.app/zh/platforms/wechat08
+    en: https://link.langbot.app/en/platforms/wechat08
+    ja: https://link.langbot.app/ja/platforms/wechat08
+  config:
+    - name: base_url
+      label:
+        en_US: API Base URL
+        zh_Hans: API 基础地址
+        zh_Hant: API 基礎地址
+      description:
+        en_US: The base URL of the wechatReal08 backend API, e.g. http://127.0.0.1:8062/api
+        zh_Hans: wechatReal08 后端 API 的基础地址，例如 http://127.0.0.1:8062/api
+        zh_Hant: wechatReal08 後端 API 的基礎地址，例如 http://127.0.0.1:8062/api
+      type: string
+      required: true
+      default: "http://127.0.0.1:8062/api"
+    - name: callback_port
+      label:
+        en_US: Callback Port
+        zh_Hans: 回调端口
+        zh_Hant: 回調埠
+      description:
+        en_US: Port of the message push callback server. Must match the port in the backend syncmessagebusinessuri
+        zh_Hans: 消息推送回调服务端口，需与后端 syncmessagebusinessuri 中的端口一致
+        zh_Hant: 訊息推送回調服務埠，需與後端 syncmessagebusinessuri 中的埠一致
+      type: integer
+      required: false
+      default: 8088
+    - name: wxid
+      label:
+        en_US: wxid
+        zh_Hans: wxid
+        zh_Hant: wxid
+      description:
+        en_US: Optional. The wxid of an existing login. Leave empty to trigger QR code login on startup.
+        zh_Hans: 可选。已登录微信的 wxid，填写则直接使用已有登录态；留空则在启动时输出二维码扫码登录。
+        zh_Hant: 可選。已登入微信的 wxid，填寫則直接使用既有登入態；留空則在啟動時輸出 QR Code 掃碼登入。
+      type: string
+      required: false
+      default: ""
+    - name: device_id
+      label:
+        en_US: Device ID
+        zh_Hans: 设备ID
+        zh_Hant: 設備ID
+      description:
+        en_US: Optional. Device ID reused across logins to keep a stable device environment. Auto-generated and persisted after first login.
+        zh_Hans: 可选。设备ID，复用同一设备环境降低风控；首次登录后自动生成并持久化，一般无需手动填写。
+        zh_Hant: 可選。設備ID，複用同一設備環境降低風控；首次登入後自動生成並持久化，一般無需手動填寫。
+      type: string
+      required: false
+      default: ""
+    - name: clear_cache
+      label:
+        en_US: Clear Login Cache
+        zh_Hans: 清除登录缓存
+        zh_Hant: 清除登入快取
+      description:
+        en_US: One-shot. On the next startup, clears the persisted login cache and triggers a fresh QR code login. Use it when switching to a new account. After it runs once, it is skipped automatically (a marker file is written), so leaving it enabled will not wipe the login on every restart.
+        zh_Hans: 一次性清理。下次启动时清除本地登录缓存并重新扫码登录，用于更换新账号（旧账号无法再恢复）。执行一次后自动跳过（会写入标记文件），即使一直开着也不会每次重启都清理。
+        zh_Hant: 一次性清理。下次啟動時清除本機登入快取並重新掃碼登入，用於更換新帳號（舊帳號將無法再恢復）。執行一次後自動跳過（會寫入標記檔案），即使一直開啟也不會每次重啟都清理。
+      type: boolean
+      required: false
+      default: false
+execution:
+  python:
+    path: ./wechat08.py
+    attr: Wechat08Adapter

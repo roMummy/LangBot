@@ -57,3 +57,8 @@ testsdk/
 
 # Next.js build cache (legacy)
 web/.next/
+
+wechatReal08/
+
+/docker/data/
+

@@ -47,10 +47,11 @@ services:
     restart: on-failure
     environment:
       - TZ=Asia/Shanghai
-      # Optional shared control-plane secret used to authenticate both the RPC
-      # socket and managed-process relay. Leave unset on both OSS services, or
-      # generate one with ``openssl rand -hex 32`` and set the same value on
-      # both ends. Strongly recommended when the deployment is Internet-accessible.
+      # Shared control-plane secret used to authenticate both the RPC socket
+      # and managed-process relay. Generate once (for example with
+      # ``openssl rand -hex 32``) and export it before enabling this profile.
+      # An empty value is accepted by Compose so Box can remain optional, but
+      # the Box runtime itself fails closed when the profile is started.
       - LANGBOT_BOX_CONTROL_TOKEN=${LANGBOT_BOX_CONTROL_TOKEN:-}
       # Box has its own process-wide blocking-work budget.
       - LANGBOT_BLOCKING_EXECUTOR_MAX_WORKERS=${LANGBOT_BLOCKING_EXECUTOR_MAX_WORKERS:-8}
@@ -73,14 +74,18 @@ services:
     container_name: langbot
     volumes:
       - ./data:/app/data
+      # Mount the wechat08 adapter files individually (single-file mounts) so
+      # adapter changes take effect after a restart. Do NOT mount the whole
+      # sources dir: the local checkout may differ from the image version.
+      - /Users/macbookpro2022m2/Downloads/LangBot-master/src/langbot/pkg/platform/sources/wechat08.py:/app/src/langbot/pkg/platform/sources/wechat08.py
+      - /Users/macbookpro2022m2/Downloads/LangBot-master/src/langbot/pkg/platform/sources/wechat08.yaml:/app/src/langbot/pkg/platform/sources/wechat08.yaml
     restart: on-failure
     environment:
       - TZ=Asia/Shanghai
       # Optional. Leave unset on both OSS services, or match plugin Runtime.
       - LANGBOT_PLUGIN_RUNTIME_CONTROL_TOKEN=${LANGBOT_PLUGIN_RUNTIME_CONTROL_TOKEN:-}
-      # When set, this must match langbot_box. If both ends leave it unset,
-      # OSS permits the connection without token authentication. The token is
-      # sent only in WebSocket handshake headers, never in URLs or payloads.
+      # Must match the value supplied to langbot_box. The token is sent only
+      # in WebSocket handshake headers, never in URLs or action payloads.
       - LANGBOT_BOX_CONTROL_TOKEN=${LANGBOT_BOX_CONTROL_TOKEN:-}
       # Core process-wide blocking-work admission. These are native config
       # overrides and are persisted with the effective data/config.yaml.
@@ -98,6 +103,7 @@ services:
     ports:
       - 5300:5300  # For web ui and webhook callback
       - 2280-2285:2280-2285  # For platform reverse connection
+      - 8088:8088  # wechat08 message push callback
     networks:
       - langbot_network
 
